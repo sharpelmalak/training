@@ -37,8 +37,8 @@ if YOLO_TYPE                == "yolov3":
 TRAIN_YOLO_TINY             = False
 TRAIN_SAVE_BEST_ONLY        = True # saves only best model according validation loss (True recommended)
 TRAIN_SAVE_CHECKPOINT       = False # saves all best validated checkpoints in training process (may require a lot disk space) (False recommended)
-TRAIN_CLASSES               = "mnist/mnist.names"
-TRAIN_ANNOT_PATH            = "mnist/mnist_train.txt"
+TRAIN_CLASSES               = "./model_data/license_plate_names.txt"
+TRAIN_ANNOT_PATH            = "./model_data/license_plate_train.txt"
 TRAIN_LOGDIR                = "log"
 TRAIN_CHECKPOINTS_FOLDER    = "checkpoints"
 TRAIN_MODEL_NAME            = f"{YOLO_TYPE}_custom"
@@ -54,7 +54,7 @@ TRAIN_WARMUP_EPOCHS         = 2
 TRAIN_EPOCHS                = 100
 
 # TEST options
-TEST_ANNOT_PATH             = "mnist/mnist_test.txt"
+TEST_ANNOT_PATH             = "./model_data/license_plate_test.txt"
 TEST_BATCH_SIZE             = 4
 TEST_INPUT_SIZE             = 416
 TEST_DATA_AUG               = False
@@ -65,7 +65,7 @@ TEST_IOU_THRESHOLD          = 0.45
 
 #YOLOv3-TINY and YOLOv4-TINY WORKAROUND
 if TRAIN_YOLO_TINY:
-    YOLO_STRIDES            = [16, 32, 64]    
+    YOLO_STRIDES            = [16, 32, 64]
     YOLO_ANCHORS            = [[[10,  14], [23,   27], [37,   58]],
                                [[81,  82], [135, 169], [344, 319]],
                                [[0,    0], [0,     0], [0,     0]]]
